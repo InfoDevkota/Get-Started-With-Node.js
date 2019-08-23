@@ -7,6 +7,7 @@ const session = require("express-session");
 const homePageRouter = require("./routes/homepage");
 const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
+const productRouter = require("./routes/products");
 
 //const test = require("./test");
 
@@ -38,6 +39,7 @@ app.use((req,res,next) =>{
 app.use(homePageRouter);
 app.use(authRouter);
 app.use(profileRouter);
+app.use(productRouter);
 
 app.get("*", (req,res,next)=>{
     res.render("404");
