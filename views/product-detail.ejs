@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1><%= product.title %></h1>
-    <img src="<%= product.imageUrl %>" alt=""><br>
+    <img src="/<%= product.imageUrl %>" alt=""><br>
     posted By: <%= product.postedBy.name %> <br>
     <% if(canEdit){ %>
         <a href="/edit-product/<%= product._id %>">Edit</a>

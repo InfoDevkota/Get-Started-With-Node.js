@@ -12,7 +12,7 @@
             for(let product of products){ %>
                 <li>
                     <h3><%= product.title %></h3>
-                    <img src="<%= product.imageUrl %>" alt=""><br>
+                    <img src="/<%= product.imageUrl %>" alt=""><br>
                     posted By: <%= product.postedBy.name %> <br>
                     <a href="/product/<%= product._id %>">Details</a>
                     <!-- <a href="/edit-product/<%= product._id %>">Edit</a> -->

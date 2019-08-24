@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const Product = require("../models/product");
 
 module.exports.getAddProduct = (req,res,next) =>{
@@ -10,14 +12,19 @@ module.exports.postAddProduct = (req,res,next) =>{
     const product = new Product({
         title: productTitle,
         postedBy: req.session.user,
-        imageUrl: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        imageUrl: req.files[0].path
     })
+
+    for(let i = 1; i < req.files.length; i++){
+        product.images.push(req.files[i].path)
+    }
 
     product
     .save()
     .then(product =>{
         res.redirect("/");
     })
+    //res.redirect("/");
 }
 
 module.exports.getProducts = (req,res,next) =>{
@@ -92,10 +99,22 @@ module.exports.getDeleteProduct = (req,res,next) =>{
     .then(product =>{
         if(product.postedBy._id == req.session.user._id){
             //delete now
+            clearFile(product.imageUrl);
+            product.images.forEach(element =>{
+                clearFile(element);
+            })
             return Product.deleteOne({_id: productId})
         }
     })
     .then(result =>{
         res.redirect("/products")
+    })
+}
+
+clearFile = (filePath) =>{
+    fs.unlink(filePath, error =>{
+        if(error != null){
+            console.log(error);
+        }
     })
 }

@@ -7,9 +7,9 @@
     <title>Add Product</title>
 </head>
 <body>
-    <form action="/add-product" method="post">
+    <form action="/add-product" method="post" enctype="multipart/form-data">
         title: <input type="text" name="title" id=""><br>
-        <input type="file" name="image"><br>
+        <input type="file" name="images" multiple><br>
         <button type="submit">Add Product</button>
     </form>
 </body>
