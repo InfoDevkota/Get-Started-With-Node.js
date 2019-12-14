@@ -13,12 +13,17 @@
                 <li>
                     <h3><%= product.title %></h3>
                     <img src="/<%= product.imageUrl %>" alt=""><br>
+                    <% if(product.category){ %>
+                        Category: <%= product.category.title %> <br>
+                    <%}%>
                     posted By: <%= product.postedBy.name %> <br>
                     <a href="/product/<%= product._id %>">Details</a>
                     <!-- <a href="/edit-product/<%= product._id %>">Edit</a> -->
                 </li>
             <%}
-        } %>
+        } else { %>
+            <h1>No Products In the System</h1>
+        <%}%>
     </ul>
 </body>
 </html>

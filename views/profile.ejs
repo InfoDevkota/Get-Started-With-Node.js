@@ -7,11 +7,28 @@
     <title>Profile</title>
 </head>
 <body>
-    <% if(loggedIn) { %>
-        <%= name %>
-    <% } else { %>
-        <h1>No Login</h1>
-    <% } %>
-    <%= god %>
+    <h1><%= user.name %></h1>
+    Name: <%= user.name %> <br>
+    Address: <%= user.address %> <br>
+    Phone no: <%= user.phoneNo %> <br>
+
+    <h2>Products by <%= user.name %></h2>
+    <ul>
+            <% if(products){
+                if(products.length>0){
+                    for(let product of products){ %>
+                        <li>
+                            <h3><%= product.title %></h3>
+                            <img src="/<%= product.imageUrl %>" alt=""><br>
+                            <% if(product.category){ %>
+                                Category: <%= product.category.title %> <br>
+                            <%}%>
+                            <a href="/product/<%= product._id %>">Details</a>
+                            <!-- <a href="/edit-product/<%= product._id %>">Edit</a> -->
+                        </li>
+                    <%}
+                }
+             } %>
+        </ul>
 </body>
 </html>

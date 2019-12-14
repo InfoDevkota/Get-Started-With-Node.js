@@ -10,6 +10,8 @@ module.exports.postSingUp = (req,res,next) =>{
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
+    const address = req.body.address;
+    const phoneNo = req.body.phoneno;
 
     //TODO
     //we need to validate if the email is already used.
@@ -19,7 +21,9 @@ module.exports.postSingUp = (req,res,next) =>{
             let newUser = new User({
                 name: name,
                 email: email,
-                password: hassedPassword
+                password: hassedPassword,
+                address: address,
+                phoneNo: phoneNo
             })
             return newUser.save();
         })

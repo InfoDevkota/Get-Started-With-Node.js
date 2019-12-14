@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Carts</title>
+</head>
+<body>
+    <% let total = 0; %>
+    <% for(let i = 0; i < products.length; i++ ) { %>
+        <img src="/<%= products[i].product.imageUrl %>" alt=""><br>
+        <% let price = products[i].product.price * products[i].quantity;
+            total += price;
+        %>
+        <%= products[i].product.title %> X <%= products[i].quantity %> <br/>
+    <% } %>
+    Total Price = <%= total %>
+</body>
+</html>

@@ -9,6 +9,15 @@
 <body>
     <form action="/edit-product/<%= product.id %>" method="post">
         title: <input type="text" name="title" id="" value="<%= product.title %>"><br>
+        category: 
+
+        <select name="categoryId">
+            <% for(let i = 0; i < categories.length ; i++) { %>
+                <option value='<%= categories[i]._id %>'><%= categories[i].title %></option>
+            <% } %>
+        </select> </br> 
+        price per Unit: <input type="number" name="price" id="" value="<%= product.price %>"> <br>
+        Available Quantity: <input type="text" name="quantity" id="" value="<%= product.availableQuantity %>"> <br>
         <input type="file" name="image"><br>
         <button type="submit">Update Product</button>
     </form>

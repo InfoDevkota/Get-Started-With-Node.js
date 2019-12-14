@@ -7,8 +7,18 @@
     <title>Add Product</title>
 </head>
 <body>
+    <?= categories[0].title ?>
     <form action="/add-product" method="post" enctype="multipart/form-data">
         title: <input type="text" name="title" id=""><br>
+        category: 
+
+        <select name="categoryId">
+            <% for(let i = 0; i < categories.length ; i++) { %>
+                <option value='<%= categories[i]._id %>'><%= categories[i].title %></option>
+            <% } %>
+        </select> </br> 
+        price per Unit: <input type="number" name="price" id=""> <br>
+        Available Quantity: <input type="text" name="quantity" id=""> <br>
         <input type="file" name="images" multiple><br>
         <button type="submit">Add Product</button>
     </form>

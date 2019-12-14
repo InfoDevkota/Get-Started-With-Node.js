@@ -9,10 +9,40 @@
 <body>
     <h1><%= product.title %></h1>
     <img src="/<%= product.imageUrl %>" alt=""><br>
-    posted By: <%= product.postedBy.name %> <br>
-    <% if(canEdit){ %>
+    Price: <%= product.price %> <br>
+    Available Quantity: <%= product.availableQuantity %> <br>
+    posted By: <a href="/profile/<%= product.postedBy._id %>"><%= product.postedBy.name %></a><br>
+    <% if(canEdit || isAdmin){ %>
         <a href="/edit-product/<%= product._id %>">Edit</a>
         <a href="/delete-product/<%= product._id %>">Delete</a>
     <%}%>
+    <% if(isLogin){ %>
+        <% if(!isAdded){ %>
+            <br>
+            Quantity: <input type="number" name="" id="quantity">
+            <script>
+                    function getInputValue(){
+                        let quantity = document.getElementById("quantity").value;
+                        if(quantity<=0){
+                            alert("Quantaty Should be more than 0");
+                            return;
+                        }
+                        let url = "/add-to-cart/<%= product._id %>/";
+                        // let url = "#";
+                        url += quantity;
+                        document.getElementById("url").setAttribute("href", url); 
+                        // console.log(document.getElementById("url").getAttribute("href"))
+                        //TODO can be implemented in better ways :) Probably
+                    }
+                </script>
+                <br>
+            <!-- <a id = "url2"  href="/add-to-cart/<%= product._id %>/" onclick="getInputValue();">Add to cart</a> -->
+            <a id = "url" href="#" onclick="getInputValue();">Add to cart</a>
+        <%} else {%>
+            Already in Cart
+        <% } %>
+    <%} else {%>
+        <a href="/login">Login</a> to Add to Cart
+    <% } %>
 </body>
 </html>

@@ -14,6 +14,26 @@ const userSchema = new Schema({
     password:{
         type:String,
         required:true
+    },
+    cart:{
+        type: Schema.Types.ObjectId,
+        ref: "Cart"
+    },
+    isAdmin:{
+        type: Boolean,
+        default: false
+    },
+    address:{
+        type: String,
+        required: true
+    },
+    phoneNo:{
+        type: String,
+        required: true
+    },
+    blocked:{
+        type: Boolean,
+        default: false
     }
 })
 
