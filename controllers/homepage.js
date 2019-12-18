@@ -1,13 +1,23 @@
 let names = ["Sagar", "Amrit", "Suman"];
 
+const Product = require("../models/product");
+
 module.exports.getHomePage = (req,res,next) =>{
     // res.write("Hello World5!");
     // res.end();
 
-    res.render("homepage", {
-        name: "Sagar",
-        names: names
-    });
+    let isLogin = req.session.isLoggedIn;
+
+    Product.find()
+    .populate("postedBy category")
+    .then(products =>{
+        res.render("homepage", {
+            name: "Sagar",
+            names: names,
+            products: products,
+            isLogin: isLogin
+        });
+    })
 }
 
 module.exports.getLogin = (req,res,next) =>{

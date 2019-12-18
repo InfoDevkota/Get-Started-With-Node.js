@@ -1,32 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Product</title>
-</head>
-<body>
-    <?= categories[0].title ?>
-    <form action="/add-product" method="post" enctype="multipart/form-data">
-        title: <input type="text" name="title" id=""><br>
-        category:
-
-        <select name="categoryId">
-            <% for(let i = 0; i < categories.length ; i++) { %>
-                <option value='<%= categories[i]._id %>'><%= categories[i].title %></option>
-            <% } %>
-        </select> </br>
-        price per Unit: <input type="number" name="price" id=""> <br>
-        Available Quantity: <input type="text" name="quantity" id=""> <br>
-        <input type="file" name="images" multiple><br>
-        <button type="submit">Add Product</button>
-    </form>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <!-- Required meta tags-->
@@ -37,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>ShopG</title>
+    <title>ShopG | Add Product</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -61,7 +34,7 @@
                 <div class="card-body">
                     <h2 class="title">Post You Product</h2>
                     <?= categories[0].title ?>
-                    <formn action="/add-product" method="post" enctype="multipart/form-data">
+                    <form action="/add-product" method="post" enctype="multipart/form-data">
                         <div class="input-group">
                             <input class="input--style-2" type="text" placeholder="Title" name="title" id="">
                         </div>

@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>ShopG</title>
+    <title>Amado - Furniture Ecommerce Template | Home</title>
 
     <!-- Favicon  -->
     <link rel="icon" href="../static/amado/img/core-img/favicon.ico">
@@ -69,22 +69,11 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li class="active"><a href="">Home</a></li>
-                    <li><a href="/products">Products</a></li>
-                    <% if(isLogin) { %>
-                        <li><a href="/me">My Profile</a></li>
-                        <li><a href="/cart">Cart</a></li>
-                        <li><a href="/add-product">Add Product</a></li>
-                        <li><a href="/add-category">Add Category</a></li>
-                        <li></li>
-                        <li><a href="/login">Logout</a></li>
-                    <% } else { %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/signup">Sign Up</a></li>
-                    <% } %>
-
-
-
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="product-details.html">Product</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
@@ -112,29 +101,122 @@
         <div class="products-catagories-area clearfix">
             <div class="amado-pro-catagory clearfix">
 
-                <% if(products.length>0){
-                    for(let product of products){ %>
-                        <div class="single-products-catagory clearfix">
-                            <a href="/product/<%= product._id %>">
-                                <img src="/<%= product.imageUrl %>" alt="">
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <div class="line"></div>
-                                    <p>Rs. <%= product.price %></p>
-                                    <h4><%= product.title %></h4>
-                                    <% if(product.category){ %>
-                                        <h4 style="font-size: small;" ><%= product.category.title %></h4>
-                                    <%}%>
-                                </div>
-                            </a>
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="../static/amado/shop.html">
+                        <img src="../static/amado/img/bg-img/1.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $180</p>
+                            <h4>Modern Chair</h4>
                         </div>
-                    <%}
-                } else { %>
-                    <h1>No Products In the System</h1>
-                <%}%>
+                    </a>
+                </div>
 
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/2.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $180</p>
+                            <h4>Minimalistic Plant Pot</h4>
+                        </div>
+                    </a>
+                </div>
 
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/3.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $180</p>
+                            <h4>Modern Chair</h4>
+                        </div>
+                    </a>
+                </div>
 
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/4.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $180</p>
+                            <h4>Night Stand</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/5.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $18</p>
+                            <h4>Plant Pot</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/6.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $320</p>
+                            <h4>Small Table</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/7.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $318</p>
+                            <h4>Metallic Chair</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/8.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $318</p>
+                            <h4>Modern Rocking Chair</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Catagory -->
+                <div class="single-products-catagory clearfix">
+                    <a href="shop.html">
+                        <img src="../static/amado/img/bg-img/9.jpg" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From $318</p>
+                            <h4>Home Deco</h4>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <!-- Product Catagories Area End -->
@@ -232,4 +314,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </body>
 
 </html>
-
