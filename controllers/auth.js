@@ -29,7 +29,7 @@ module.exports.postSingUp = (req,res,next) =>{
         })
         .then(newUser =>{
             console.log("User Created");
-            res.redirect("/");
+            res.redirect("/logout");//Here we logout in case some logined user had created a new account. can be other better way :( 
         })
     //res.redirect("/");
 }
@@ -62,4 +62,10 @@ module.exports.postLogin = (req,res,next) => {
             })
         }
     })
+}
+
+module.exports.getLogout = (req,res,next) =>{
+    req.session.isLoggedIn = false;
+    req.session.user = null;
+    res.redirect("/");
 }
