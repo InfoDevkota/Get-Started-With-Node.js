@@ -1,55 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= product.title %></title>
-</head>
-<body>
-    <h1><%= product.title %></h1>
-    <img src="/<%= product.imageUrl %>" alt=""><br>
-    Price: <%= product.price %> <br>
-    Available Quantity: <%= product.availableQuantity %> <br>
-    posted By: <a href="/profile/<%= product.postedBy._id %>"><%= product.postedBy.name %></a><br>
-    <% if(canEdit || isAdmin){ %>
-        <a href="/edit-product/<%= product._id %>">Edit</a>
-        <a href="/delete-product/<%= product._id %>">Delete</a>
-    <%}%>
-    <% if(isLogin){ %>
-        <% if(!isAdded){ %>
-            <br>
-            Quantity: <input type="number" name="" id="quantity">
-            <script>
-                    function getInputValue(){
-                        let quantity = document.getElementById("quantity").value;
-                        if(quantity<=0){
-                            alert("Quantaty Should be more than 0");
-                            return;
-                        }
-                        let url = "/add-to-cart/<%= product._id %>/";
-                        // let url = "#";
-                        url += quantity;
-                        document.getElementById("url").setAttribute("href", url);
-                        // console.log(document.getElementById("url").getAttribute("href"))
-                        //TODO can be implemented in better ways :) Probably
-                    }
-                </script>
-                <br>
-            <!-- <a id = "url2"  href="/add-to-cart/<%= product._id %>/" onclick="getInputValue();">Add to cart</a> -->
-            <a id = "url" href="#" onclick="getInputValue();">Add to cart</a>
-        <%} else {%>
-            Already in Cart
-        <% } %>
-    <%} else {%>
-        <a href="/login">Login</a> to Add to Cart
-    <% } %>
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -155,10 +105,9 @@
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mt-50">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Furniture</a></li>
-                                <li class="breadcrumb-item"><a href="#">Chairs</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">white modern chair</li>
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#"><%= product.category.title %></a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><%= product.title %></li>
                             </ol>
                         </nav>
                     </div>
@@ -225,36 +174,41 @@
 
                             <div class="short_overview my-5">
                               <% if(canEdit || isAdmin){ %>
-                                  <a href="/edit-product/<%= product._id %>">Edit</a>
-                                  <a href="/delete-product/<%= product._id %>">Delete</a>
+                                <a class="btn amado-btn" href="/edit-product/<%= product._id %>"> Edit</a>
+                                <a class="btn amado-btn" href="/delete-product/<%= product._id %>"> Delete</a>
                               <%}%>
                               <% if(isLogin){ %>
                                   <% if(!isAdded){ %>
                                       <br>
-                                    <p style="width:50px">  Quantity: <input style="width: 100px; height: 40px; padding: 12px 20px; margin: 8px 0 box-sizing: border-box; border: none; background-color: #f5f7fa; color: #959595;" type="number" name="" id="quantity"></p>
                                       <script>
-                                              function getInputValue(){
-                                                  let quantity = document.getElementById("quantity").value;
-                                                  if(quantity<=0){
-                                                      alert("Quantaty Should be more than 0");
-                                                      return;
-                                                  }
-                                                  let url = "/add-to-cart/<%= product._id %>/";
-                                                  // let url = "#";
-                                                  url += quantity;
-                                                  document.getElementById("url").setAttribute("href", url);
-                                                  // console.log(document.getElementById("url").getAttribute("href"))
-                                                  //TODO can be implemented in better ways :) Probably
-                                              }
-                                          </script>
+                                        function getInputValue(){
+                                            let quantity = document.getElementById("quantity").value;
+                                            if(quantity<=0){
+                                                alert("Quantaty Should be more than 0");
+                                                return;
+                                            }
+                                            let url = "/add-to-cart/<%= product._id %>/";
+                                            // let url = "#";
+                                            url += quantity;
+                                            document.getElementById("url").setAttribute("href", url);
+                                            // console.log(document.getElementById("url").getAttribute("href"))
+                                            //TODO can be implemented in better ways :) Probably
+                                        }
+                                    </script>
+                                    <p style="width:50px">  
+                                        Quantity: <input onfocusout="getInputValue()" type="number" value="1" id="quantity">
+                                    </p>
                                           <br>
                                       <!-- <a id = "url2"  href="/add-to-cart/<%= product._id %>/" onclick="getInputValue();">Add to cart</a> -->
-                                      <a id = "url" href="#" onclick="getInputValue();"><button class="btn amado-btn">Add to cart</button></a>
+                                      <a id="url" class="btn amado-btn" href="/add-to-cart/<%= product._id %>/1">Add to cart</a>
                                   <%} else {%>
-                                      Already in Cart
+                                    <br>
+                                    <br>
+                                      <a class="btn amado-btn disabled" href="">Already in cart</a>
                                   <% } %>
                               <%} else {%>
-                                  <a href="/login"><button  class="btn amado-btn"> Log In to Add to cart</button></a>
+                                    <br>
+                                  <a class="btn amado-btn" href="/login">Log In to Add to cart</a>
                               <% } %>
                             </div>
 
